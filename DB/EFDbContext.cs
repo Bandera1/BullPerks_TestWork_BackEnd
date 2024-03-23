@@ -15,5 +15,6 @@ namespace BullPerks_TestWork.DB
         }
 
         public DbSet<DbToken> Tokens { get; set; }
+
     }
 }
