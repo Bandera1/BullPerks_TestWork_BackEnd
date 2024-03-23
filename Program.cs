@@ -1,5 +1,8 @@
 using BullPerks_TestWork.DB;
 using BullPerks_TestWork.DB.IdentityModels;
+using BullPerks_TestWork.DB.Models;
+using BullPerks_TestWork.Repositories.Implementations;
+using BullPerks_TestWork.Repositories.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -47,8 +50,11 @@ builder.Services.AddAuthentication(options =>
 });
 #endregion
 
+#region DI
+builder.Services.AddTransient<IRepository<DbToken>, DbTokenRepository>();
+#endregion
+
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -61,7 +67,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
