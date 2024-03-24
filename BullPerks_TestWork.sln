@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BullPerks_TestWork.DAL", ".
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BullPerks_TestWork.Domain", "..\BullPerks_TestWork.Domain\BullPerks_TestWork.Domain.csproj", "{38FD9BD3-CB89-4CC1-B968-39706232A0A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BullPerks_TestWork.Services", "..\BullPerks_TestWork.Services\BullPerks_TestWork.Services.csproj", "{D96CA07A-D591-4036-BB2B-7ACA1E8C7EDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BullPerks_TestWork.Services", "..\BullPerks_TestWork.Services\BullPerks_TestWork.Services.csproj", "{D96CA07A-D591-4036-BB2B-7ACA1E8C7EDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClassLibrary", "TestClassLibrary\TestClassLibrary.csproj", "{0D3B47BE-A4C1-47D6-AEE4-767485373AF7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D96CA07A-D591-4036-BB2B-7ACA1E8C7EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D96CA07A-D591-4036-BB2B-7ACA1E8C7EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D96CA07A-D591-4036-BB2B-7ACA1E8C7EDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D3B47BE-A4C1-47D6-AEE4-767485373AF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D3B47BE-A4C1-47D6-AEE4-767485373AF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D3B47BE-A4C1-47D6-AEE4-767485373AF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D3B47BE-A4C1-47D6-AEE4-767485373AF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
