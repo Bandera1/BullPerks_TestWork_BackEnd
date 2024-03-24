@@ -1,7 +1,7 @@
-using BullPerks_TestWork.Services.Interfaces;
+using BullPerks_TestWork.Api.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BullPerks_TestWork.Controllers
+namespace BullPerks_TestWork.Api.Controllers
 {
     [ApiController]
     [Route("[controller]")]

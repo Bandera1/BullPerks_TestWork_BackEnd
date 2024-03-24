@@ -1,4 +1,4 @@
-namespace BullPerks_TestWork
+namespace BullPerks_TestWork.Api
 {
     public class WeatherForecast
     {

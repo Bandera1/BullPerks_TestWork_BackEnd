@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BullPerks_TestWork", "BullPerks_TestWork.csproj", "{92DA960F-44CD-4C8C-9CCD-D67D5576BEA2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BullPerks_TestWork.Api", "BullPerks_TestWork.Api.csproj", "{92DA960F-44CD-4C8C-9CCD-D67D5576BEA2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BullPerks_TestWork.DAL", "..\BullPerks_TestWork.DAL\BullPerks_TestWork.DAL.csproj", "{3C084B67-F08B-42AA-95B4-B17D63A13C58}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BullPerks_TestWork.Domain", "..\BullPerks_TestWork.Domain\BullPerks_TestWork.Domain.csproj", "{38FD9BD3-CB89-4CC1-B968-39706232A0A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BullPerks_TestWork.Services", "..\BullPerks_TestWork.Services\BullPerks_TestWork.Services.csproj", "{D96CA07A-D591-4036-BB2B-7ACA1E8C7EDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{92DA960F-44CD-4C8C-9CCD-D67D5576BEA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92DA960F-44CD-4C8C-9CCD-D67D5576BEA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92DA960F-44CD-4C8C-9CCD-D67D5576BEA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C084B67-F08B-42AA-95B4-B17D63A13C58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C084B67-F08B-42AA-95B4-B17D63A13C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C084B67-F08B-42AA-95B4-B17D63A13C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C084B67-F08B-42AA-95B4-B17D63A13C58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38FD9BD3-CB89-4CC1-B968-39706232A0A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38FD9BD3-CB89-4CC1-B968-39706232A0A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38FD9BD3-CB89-4CC1-B968-39706232A0A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38FD9BD3-CB89-4CC1-B968-39706232A0A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D96CA07A-D591-4036-BB2B-7ACA1E8C7EDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D96CA07A-D591-4036-BB2B-7ACA1E8C7EDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D96CA07A-D591-4036-BB2B-7ACA1E8C7EDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D96CA07A-D591-4036-BB2B-7ACA1E8C7EDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

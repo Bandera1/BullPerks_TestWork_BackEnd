@@ -1,15 +1,16 @@
-using BullPerks_TestWork.DB;
-using BullPerks_TestWork.DB.IdentityModels;
-using BullPerks_TestWork.DB.Models;
-using BullPerks_TestWork.Repositories.Implementations;
-using BullPerks_TestWork.Repositories.Interfaces;
-using BullPerks_TestWork.Services.Implementations;
-using BullPerks_TestWork.Services.Interfaces;
+using BullPerks_TestWork.Api.DB;
+using BullPerks_TestWork.Api.DB.IdentityModels;
+using BullPerks_TestWork.Api.DB.Models;
+using BullPerks_TestWork.Api.Repositories.Interfaces;
+using BullPerks_TestWork.Api.Services.Interfaces;
+using BullPerks_TestWork.DAL.Repositories;
+using BullPerks_TestWork.Services.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

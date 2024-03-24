@@ -22,4 +22,10 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.4.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BullPerks_TestWork.DAL\BullPerks_TestWork.DAL.csproj" />
+    <ProjectReference Include="..\BullPerks_TestWork.Domain\BullPerks_TestWork.Domain.csproj" />
+    <ProjectReference Include="..\BullPerks_TestWork.Services\BullPerks_TestWork.Services.csproj" />
+  </ItemGroup>
+
 </Project>
