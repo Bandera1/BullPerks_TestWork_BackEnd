@@ -1,4 +1,4 @@
-using BullPerks_TestWork.Api.Services.Interfaces;
+using BullPerks_TestWork.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BullPerks_TestWork.Api.Controllers

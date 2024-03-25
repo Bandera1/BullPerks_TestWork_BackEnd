@@ -1,6 +1,6 @@
 ﻿using BullPerks_TestWork.Api.Models.JSON;
 
-namespace BullPerks_TestWork.Api.Services.Interfaces
+namespace BullPerks_TestWork.Domain.Interfaces.Services
 {
     public interface ICryptoWalletService
     {

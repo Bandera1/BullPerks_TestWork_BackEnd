@@ -10,3 +10,15 @@ D:\Programming\BullPerks_TestWork.Domain\obj\Debug\net6.0\BullPerks_TestWork.Dom
 D:\Programming\BullPerks_TestWork.Domain\obj\Debug\net6.0\refint\BullPerks_TestWork.Domain.dll
 D:\Programming\BullPerks_TestWork.Domain\obj\Debug\net6.0\BullPerks_TestWork.Domain.pdb
 D:\Programming\BullPerks_TestWork.Domain\obj\Debug\net6.0\ref\BullPerks_TestWork.Domain.dll
+D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Domain\bin\Debug\net6.0\BullPerks_TestWork.Domain.deps.json
+D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Domain\bin\Debug\net6.0\BullPerks_TestWork.Domain.dll
+D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Domain\bin\Debug\net6.0\BullPerks_TestWork.Domain.pdb
+D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Domain\obj\Debug\net6.0\BullPerks_TestWork.Domain.csproj.AssemblyReference.cache
+D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Domain\obj\Debug\net6.0\BullPerks_TestWork.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Domain\obj\Debug\net6.0\BullPerks_TestWork.Domain.AssemblyInfoInputs.cache
+D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Domain\obj\Debug\net6.0\BullPerks_TestWork.Domain.AssemblyInfo.cs
+D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Domain\obj\Debug\net6.0\BullPerks_TestWork.Domain.csproj.CoreCompileInputs.cache
+D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Domain\obj\Debug\net6.0\BullPerks_TestWork.Domain.dll
+D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Domain\obj\Debug\net6.0\refint\BullPerks_TestWork.Domain.dll
+D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Domain\obj\Debug\net6.0\BullPerks_TestWork.Domain.pdb
+D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Domain\obj\Debug\net6.0\ref\BullPerks_TestWork.Domain.dll

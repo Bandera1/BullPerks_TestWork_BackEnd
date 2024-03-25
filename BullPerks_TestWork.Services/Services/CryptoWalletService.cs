@@ -1,6 +1,6 @@
 ﻿using BullPerks_TestWork.Api.Constants;
 using BullPerks_TestWork.Api.Models.JSON;
-using BullPerks_TestWork.Api.Services.Interfaces;
+using BullPerks_TestWork.Domain.Interfaces.Services;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
@@ -16,7 +16,7 @@ namespace BullPerks_TestWork.Services.Services
             _httpClient = new HttpClient();
             _configuration = configuration;
         }
-
+        
         public async Task<float> GetTokenTotalSupplyByContractAddress(string contractAddress)
         {
             var baseUrl = _configuration.GetSection("API_Url").GetSection("BscScanApi").GetSection("BaseUrl").Value;

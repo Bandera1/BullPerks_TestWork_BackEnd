@@ -1,5 +1,4 @@
-﻿using BullPerks_TestWork.Api.DB;
-using BullPerks_TestWork.Api.DB.Models;
+﻿using BullPerks_TestWork.Api.DB.Models;
 using BullPerks_TestWork.Api.Repositories.Interfaces;
 using Microsoft.Extensions.Logging;
 

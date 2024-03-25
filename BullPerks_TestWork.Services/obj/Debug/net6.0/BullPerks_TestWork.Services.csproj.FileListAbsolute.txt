@@ -28,3 +28,5 @@ D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Services\obj\Debug\net6.0\B
 D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Services\obj\Debug\net6.0\refint\BullPerks_TestWork.Services.dll
 D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Services\obj\Debug\net6.0\BullPerks_TestWork.Services.pdb
 D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Services\obj\Debug\net6.0\ref\BullPerks_TestWork.Services.dll
+D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Services\bin\Debug\net6.0\BullPerks_TestWork.DAL.dll
+D:\Programming\BullPerks_TestWork\BullPerks_TestWork.Services\bin\Debug\net6.0\BullPerks_TestWork.DAL.pdb

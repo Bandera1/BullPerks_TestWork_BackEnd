@@ -1,9 +1,9 @@
-using BullPerks_TestWork.Api.DB;
 using BullPerks_TestWork.Api.DB.IdentityModels;
 using BullPerks_TestWork.Api.DB.Models;
 using BullPerks_TestWork.Api.Repositories.Interfaces;
-using BullPerks_TestWork.Api.Services.Interfaces;
+using BullPerks_TestWork.DAL;
 using BullPerks_TestWork.DAL.Repositories;
+using BullPerks_TestWork.Domain.Interfaces.Services;
 using BullPerks_TestWork.Services.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -56,6 +56,8 @@ builder.Services.AddAuthentication(options =>
 #region DI
 builder.Services.AddTransient<IRepository<DbToken>, DbTokenRepository>();
 builder.Services.AddTransient<ICryptoWalletService, CryptoWalletService>();
+builder.Services.AddTransient<IJwtTokenService, JwtTokenService>();
+builder.Services.AddTransient<IAuthService, AuthService>();
 #endregion
 
 builder.Services.AddControllers();

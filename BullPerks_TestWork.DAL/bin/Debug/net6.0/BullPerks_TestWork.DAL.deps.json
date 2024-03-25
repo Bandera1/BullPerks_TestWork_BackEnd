@@ -707,6 +707,7 @@
       },
       "BullPerks_TestWork.Domain/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.28",
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
           "Newtonsoft.Json": "13.0.3"
         },

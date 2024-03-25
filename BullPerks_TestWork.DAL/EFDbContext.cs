@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using BullPerks_TestWork.Api.DB.Models;
 using BullPerks_TestWork.Api.DB.IdentityModels;
 
-namespace BullPerks_TestWork.Api.DB
+namespace BullPerks_TestWork.DAL
 {
     public class EFDbContext : IdentityDbContext<DbUser, IdentityRole, string, IdentityUserClaim<string>,
     IdentityUserRole<string>, IdentityUserLogin<string>,
