@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace BullPerks_TestWork.Migrations
+namespace BullPerks_TestWork.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -173,9 +173,9 @@ namespace BullPerks_TestWork.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Tokens",
-                columns: new[] { "Id", "CirculatingSupply", "Name", "TotalSupply" },
-                values: new object[] { "asd", 10L, "UTC", 10L });
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "dbdab558-ba78-4b17-898a-ecb54bc42668", "01426c85-2e1d-4c19-ba52-9ef025b9987c", "admin", null });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

@@ -3,14 +3,17 @@ using System;
 using BullPerks_TestWork.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+
 #nullable disable
 
-namespace BullPerks_TestWork.Migrations
+namespace BullPerks_TestWork.DAL.Migrations
 {
     [DbContext(typeof(EFDbContext))]
-    [Migration("20240323123914_Init")]
-    partial class Init
+    [Migration("20240325134155_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,7 +25,7 @@ namespace BullPerks_TestWork.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("BullPerks_TestWork.DB.IdentityModels.DbUser", b =>
+            modelBuilder.Entity("BullPerks_TestWork.Api.DB.IdentityModels.DbUser", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
@@ -95,7 +98,7 @@ namespace BullPerks_TestWork.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("BullPerks_TestWork.DB.Models.DbToken", b =>
+            modelBuilder.Entity("BullPerks_TestWork.Api.DB.Models.DbToken", b =>
                 {
                     b.Property<string>("Id")
                         .ValueGeneratedOnAdd()
@@ -114,15 +117,6 @@ namespace BullPerks_TestWork.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tokens");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "asd",
-                            CirculatingSupply = 10L,
-                            Name = "UTC",
-                            TotalSupply = 10L
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -150,6 +144,14 @@ namespace BullPerks_TestWork.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "dbdab558-ba78-4b17-898a-ecb54bc42668",
+                            ConcurrencyStamp = "01426c85-2e1d-4c19-ba52-9ef025b9987c",
+                            Name = "admin"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -273,7 +275,7 @@ namespace BullPerks_TestWork.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("BullPerks_TestWork.DB.IdentityModels.DbUser", null)
+                    b.HasOne("BullPerks_TestWork.Api.DB.IdentityModels.DbUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -282,7 +284,7 @@ namespace BullPerks_TestWork.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("BullPerks_TestWork.DB.IdentityModels.DbUser", null)
+                    b.HasOne("BullPerks_TestWork.Api.DB.IdentityModels.DbUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -297,7 +299,7 @@ namespace BullPerks_TestWork.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("BullPerks_TestWork.DB.IdentityModels.DbUser", null)
+                    b.HasOne("BullPerks_TestWork.Api.DB.IdentityModels.DbUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -306,7 +308,7 @@ namespace BullPerks_TestWork.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("BullPerks_TestWork.DB.IdentityModels.DbUser", null)
+                    b.HasOne("BullPerks_TestWork.Api.DB.IdentityModels.DbUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)

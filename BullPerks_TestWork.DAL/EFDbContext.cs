@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using BullPerks_TestWork.Api.DB.Models;
 using BullPerks_TestWork.Api.DB.IdentityModels;
+using BullPerks_TestWork.Domain.Constants;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using System.Reflection.Emit;
 
 namespace BullPerks_TestWork.DAL
 {
@@ -16,5 +19,18 @@ namespace BullPerks_TestWork.DAL
         }
 
         public DbSet<DbToken> Tokens { get; set; }
+
+        protected override async void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            // Roles - 1
+            builder.Entity<IdentityRole>().HasData(new IdentityRole {
+                Id = Guid.NewGuid().ToString(),
+                Name = ProjectRoles.ADMIN, 
+                NormalizedName = ProjectRoles.ADMIN.ToUpper() 
+            });
+
+        }
     }
 }
