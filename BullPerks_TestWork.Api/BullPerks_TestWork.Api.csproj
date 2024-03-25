@@ -21,6 +21,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.5.0" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.4.1" />
   </ItemGroup>
 
@@ -28,10 +29,6 @@
     <ProjectReference Include="..\BullPerks_TestWork.DAL\BullPerks_TestWork.DAL.csproj" />
     <ProjectReference Include="..\BullPerks_TestWork.Domain\BullPerks_TestWork.Domain.csproj" />
     <ProjectReference Include="..\BullPerks_TestWork.Services\BullPerks_TestWork.Services.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

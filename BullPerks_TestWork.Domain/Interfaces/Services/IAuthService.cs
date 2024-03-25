@@ -9,6 +9,7 @@ namespace BullPerks_TestWork.Domain.Interfaces.Services
 {
     public interface IAuthService
     {
+        Task<string> RegisterUser(LoginViewModel model);
         Task<string> LoginUser(LoginViewModel model);
     }
 }
