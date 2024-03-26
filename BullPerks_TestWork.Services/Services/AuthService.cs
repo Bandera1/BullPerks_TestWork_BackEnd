@@ -1,7 +1,7 @@
 ﻿using Azure.Core;
-using BullPerks_TestWork.Api.DB.IdentityModels;
 using BullPerks_TestWork.DAL;
 using BullPerks_TestWork.Domain.Constants;
+using BullPerks_TestWork.Domain.DB.IdentityModels;
 using BullPerks_TestWork.Domain.Interfaces.Services;
 using DiplomeProject.ViewModels;
 using Microsoft.AspNetCore.Identity;

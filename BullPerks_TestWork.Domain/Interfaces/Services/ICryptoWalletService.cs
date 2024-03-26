@@ -1,4 +1,4 @@
-﻿using BullPerks_TestWork.Api.Models.JSON;
+﻿using BullPerks_TestWork.Domain.Models.JSON;
 
 namespace BullPerks_TestWork.Domain.Interfaces.Services
 {

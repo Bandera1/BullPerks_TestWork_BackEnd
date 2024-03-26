@@ -1,4 +1,4 @@
-﻿using BullPerks_TestWork.Api.DB.IdentityModels;
+﻿using BullPerks_TestWork.Domain.DB.IdentityModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

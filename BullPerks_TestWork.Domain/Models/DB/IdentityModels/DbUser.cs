@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace BullPerks_TestWork.Api.DB.IdentityModels
+namespace BullPerks_TestWork.Domain.DB.IdentityModels
 {
     public class DbUser : IdentityUser
     {

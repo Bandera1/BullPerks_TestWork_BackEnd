@@ -1,4 +1,4 @@
-﻿namespace BullPerks_TestWork.Api.Models.JSON
+﻿namespace BullPerks_TestWork.Domain.Models.JSON
 {
     public class BscScanGetTokenTotalSupplyModel
     {

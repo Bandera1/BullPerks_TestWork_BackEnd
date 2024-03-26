@@ -25,7 +25,6 @@ namespace BullPerks_TestWork.DAL.Migrations
             modelBuilder.Entity("BullPerks_TestWork.Api.DB.IdentityModels.DbUser", b =>
                 {
                     b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
@@ -101,15 +100,14 @@ namespace BullPerks_TestWork.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<long>("CirculatingSupply")
-                        .HasColumnType("bigint");
+                    b.Property<float?>("CirculatingSupply")
+                        .HasColumnType("real");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("TotalSupply")
-                        .HasColumnType("bigint");
+                    b.Property<float?>("TotalSupply")
+                        .HasColumnType("real");
 
                     b.HasKey("Id");
 
@@ -145,8 +143,8 @@ namespace BullPerks_TestWork.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "7f8d56df-75c2-4d51-8a6d-d51a26a0b0e1",
-                            ConcurrencyStamp = "55a74d6e-2fae-47b8-8acb-2878317c1a81",
+                            Id = "cc6f5f79-c3b1-404e-838a-6b51d618f174",
+                            ConcurrencyStamp = "ffe650ca-60e8-40ca-992f-6f4abb6750a8",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         });

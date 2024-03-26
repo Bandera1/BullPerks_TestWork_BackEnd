@@ -1,4 +1,4 @@
-﻿using BullPerks_TestWork.Api.DB.IdentityModels;
+﻿using BullPerks_TestWork.Domain.DB.IdentityModels;
 using BullPerks_TestWork.DAL;
 using BullPerks_TestWork.Domain.Interfaces.Services;
 using Microsoft.AspNetCore.Identity;

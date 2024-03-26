@@ -1,5 +1,6 @@
-﻿using BullPerks_TestWork.Api.DB.Models;
-using BullPerks_TestWork.Api.Repositories.Interfaces;
+﻿using BullPerks_TestWork.Api.Repositories.Interfaces;
+using BullPerks_TestWork.Domain.DB.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace BullPerks_TestWork.DAL.Repositories
@@ -45,6 +46,19 @@ namespace BullPerks_TestWork.DAL.Repositories
             Save();
         }
 
+        public void DeleteAll()
+        {
+            if(_context.Tokens.Count() == 0)
+            {
+                return;
+            }
+
+            for (int i = 0; i < _context.Tokens.Count(); i++)
+            {
+                _context.Tokens.Remove(_context.Tokens.ToList()[i]);
+            }
+        }
+
         public IEnumerable<DbToken> GetAll()
         {
             return _context.Tokens;
@@ -69,6 +83,21 @@ namespace BullPerks_TestWork.DAL.Repositories
             catch (Exception ex)
             {
                 _logger.LogError($"Error during insertion token. Error message: {ex.Message}");
+                throw ex;
+            }
+
+            Save();
+        }
+
+        public void InsertRange(IEnumerable<DbToken> Entities)
+        {
+            try
+            {
+                _context.Tokens.AddRange(Entities);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error during range insertion token. Error message: {ex.Message}");
                 throw ex;
             }
 

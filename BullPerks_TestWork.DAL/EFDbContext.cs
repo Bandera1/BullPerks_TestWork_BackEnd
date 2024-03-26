@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using BullPerks_TestWork.Api.DB.Models;
-using BullPerks_TestWork.Api.DB.IdentityModels;
+using BullPerks_TestWork.Domain.DB.Models;
+using BullPerks_TestWork.Domain.DB.IdentityModels;
 using BullPerks_TestWork.Domain.Constants;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using System.Reflection.Emit;

@@ -1,5 +1,5 @@
 ﻿using BullPerks_TestWork.Api.Constants;
-using BullPerks_TestWork.Api.Models.JSON;
+using BullPerks_TestWork.Domain.Models.JSON;
 using BullPerks_TestWork.Domain.Interfaces.Services;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;

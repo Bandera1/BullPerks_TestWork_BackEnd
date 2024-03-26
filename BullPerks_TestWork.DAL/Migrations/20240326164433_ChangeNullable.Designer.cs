@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BullPerks_TestWork.DAL.Migrations
 {
     [DbContext(typeof(EFDbContext))]
-    [Migration("20240325134155_init")]
-    partial class init
+    [Migration("20240326164433_ChangeNullable")]
+    partial class ChangeNullable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,7 +28,6 @@ namespace BullPerks_TestWork.DAL.Migrations
             modelBuilder.Entity("BullPerks_TestWork.Api.DB.IdentityModels.DbUser", b =>
                 {
                     b.Property<string>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("AccessFailedCount")
@@ -104,15 +103,14 @@ namespace BullPerks_TestWork.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<long>("CirculatingSupply")
-                        .HasColumnType("bigint");
+                    b.Property<float?>("CirculatingSupply")
+                        .HasColumnType("real");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("TotalSupply")
-                        .HasColumnType("bigint");
+                    b.Property<float?>("TotalSupply")
+                        .HasColumnType("real");
 
                     b.HasKey("Id");
 
@@ -148,9 +146,10 @@ namespace BullPerks_TestWork.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "dbdab558-ba78-4b17-898a-ecb54bc42668",
-                            ConcurrencyStamp = "01426c85-2e1d-4c19-ba52-9ef025b9987c",
-                            Name = "admin"
+                            Id = "cc6f5f79-c3b1-404e-838a-6b51d618f174",
+                            ConcurrencyStamp = "ffe650ca-60e8-40ca-992f-6f4abb6750a8",
+                            Name = "admin",
+                            NormalizedName = "ADMIN"
                         });
                 });
 
