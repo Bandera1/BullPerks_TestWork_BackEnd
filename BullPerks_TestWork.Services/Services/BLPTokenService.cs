@@ -1,14 +1,9 @@
 ﻿using BullPerks_TestWork.Api.Repositories.Interfaces;
 using BullPerks_TestWork.Domain.DB.Models;
 using BullPerks_TestWork.Domain.Interfaces.Services;
-using BullPerks_TestWork.Domain.Models.JSON;
 using BullPerks_TestWork.Domain.ViewModels;
+using Microsoft.IdentityModel.Tokens;
 using Nelibur.ObjectMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BullPerks_TestWork.Services.Services
 {
@@ -37,11 +32,11 @@ namespace BullPerks_TestWork.Services.Services
                 return TinyMapper.Map<TokenViewModel>(token);
             });
 
-            if (_dbTokenRepository.GetCountAsync() > 0)
+            if (await _dbTokenRepository.GetCountAsync() > 0)
             {
                 await _dbTokenRepository.DeleteAllAsync();
             }
-            _dbTokenRepository.InsertRange(dbTokens);
+            await _dbTokenRepository.InsertRangeAsync(dbTokens);
 
             return viewModels;
         }
@@ -58,7 +53,7 @@ namespace BullPerks_TestWork.Services.Services
 
             for (int i = 0; i < dbTokens.Count(); i++)
             {
-                if (dbTokens[i].ContractAddress.Equals(String.Empty))
+                if (dbTokens[i].ContractAddress.IsNullOrEmpty())
                 {
                     dbTokens[i].TotalSupply = 0f;
                 }
@@ -73,7 +68,7 @@ namespace BullPerks_TestWork.Services.Services
                     dbTokens[i].CirculatingSupply = dbTokens[i].TotalSupply - tokensForCalculatingAmount.Sum();
                 }
             }
-            _dbTokenRepository.SaveAsync();
+            await _dbTokenRepository.SaveAsync();
 
             var viewModels = dbTokens.Select(token =>
             {

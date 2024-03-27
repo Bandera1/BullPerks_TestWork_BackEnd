@@ -6,6 +6,9 @@ using BullPerks_TestWork.Domain.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Nelibur.ObjectMapper;
+using Swashbuckle.AspNetCore.Annotations;
+using System.Net;
+using System.Xml.Linq;
 
 namespace BullPerks_TestWork.Api.Controllers
 {
@@ -26,6 +29,7 @@ namespace BullPerks_TestWork.Api.Controllers
 
         [AllowAnonymous]
         [HttpGet("LoadAllBLPTokens")]
+        [SwaggerResponse(200, Type = typeof(TokenViewModel))]
         public async Task<IActionResult> LoadAllBLPTokens()
         {
             if (!ModelState.IsValid)
@@ -40,6 +44,7 @@ namespace BullPerks_TestWork.Api.Controllers
         }
 
         [HttpPost("CalculateTokensSupply")]
+        [SwaggerResponse(200, Type = typeof(TokenViewModel))]
         public async Task<IActionResult> CalculateTokensSupply()
         {
             if (!ModelState.IsValid)
