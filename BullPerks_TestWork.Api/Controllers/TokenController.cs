@@ -47,6 +47,7 @@ namespace BullPerks_TestWork.Api.Controllers
             {
                 if (dbTokens[i].ContractAddress.Equals(String.Empty))
                 {
+                    dbTokens[i].TotalSupply = 0f;
                     continue;
                 }
 
