@@ -41,19 +41,29 @@ namespace BullPerks_TestWork.Api.Controllers
             var dbTokens = tokens.Select(token =>
             {
                 return TinyMapper.Map<DbToken>(token);
-            });
+            }).ToList();
 
+            for (int i = 0; i < dbTokens.Count(); i++)
+            {
+                if (dbTokens[i].ContractAddress.Equals(String.Empty))
+                {
+                    continue;
+                }
+
+                dbTokens[i].TotalSupply = await _cryptoWalletService.GetTokenTotalSupplyByContractAddress(dbTokens[i].ContractAddress);
+                await Task.Delay(20); // This is required here due to BscScan API limitations of 5 requests per second.
+            }
+
+            var viewModels = dbTokens.Select(token =>
+            {
+                return TinyMapper.Map<TokenViewModel>(token);
+            });
+           
             if (_dbTokenRepository.GetCount() > 0)
             {
                 _dbTokenRepository.DeleteAll();
             }
-            _dbTokenRepository.InsertRange(dbTokens);
-
-
-            var viewModels = tokens.Select(token =>
-            {
-                return TinyMapper.Map<TokenViewModel>(token);
-            });
+            _dbTokenRepository.InsertRange(dbTokens);         
 
             return Ok(viewModels);
         }

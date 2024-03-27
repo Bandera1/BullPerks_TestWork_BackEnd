@@ -105,10 +105,11 @@ builder.Services.AddSwaggerGen(option =>
 
 // By the way, TinyMapper 8 times faster than AutoMapper. Details: http://tinymapper.net/
 #region TinyMapper
-TypeDescriptor.AddAttributes(typeof(CoinStatsGetWalletBalanceModel), new TypeConverterAttribute(typeof(CoinStatsTokenConverter)));
+TypeDescriptor.AddAttributes(typeof(CoinStatsGetWalletBalanceModel), new TypeConverterAttribute(typeof(DbTokenConverter)));
+//TypeDescriptor.AddAttributes(typeof(DbToken), new TypeConverterAttribute(typeof(TokenViewModelConverter)));
 
-TinyMapper.Bind<CoinStatsGetWalletBalanceModel, TokenViewModel>();
 TinyMapper.Bind<CoinStatsGetWalletBalanceModel, DbToken>();
+TinyMapper.Bind<DbToken, TokenViewModel>();
 #endregion
 
 var app = builder.Build();

@@ -12,5 +12,6 @@ namespace BullPerks_TestWork.Domain.DB.Models
         public string? Name { get; set; }
         public float? TotalSupply { get; set; }
         public float? CirculatingSupply { get; set; }
+        public string? ContractAddress { get; set; }
     }
 }
