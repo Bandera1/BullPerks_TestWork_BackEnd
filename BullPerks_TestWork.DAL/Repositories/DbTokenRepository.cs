@@ -16,97 +16,88 @@ namespace BullPerks_TestWork.DAL.Repositories
             _logger = logger;
         }
 
-        public void Delete(string EntityId)
+        public async Task DeleteAsync(string EntityId)
         {
             try
             {
-                _context.Tokens.Remove(GetById(EntityId));
+                await _context.Tokens.Where(x => x.Id == EntityId).ExecuteDeleteAsync();
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error during deletion token. Error message: {ex.Message}");
                 throw ex;
             }
-
-            Save();
         }
 
-        public void Delete(DbToken Entity)
+        public async Task DeleteAsync(DbToken Entity)
         {
             try
             {
-                _context.Tokens.Remove(Entity);
+               await _context.Tokens.Where(x => x.Id == Entity.Id).ExecuteDeleteAsync();
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error during deletion token. Error message: {ex.Message}");
                 throw ex;
             }
-
-            Save();
         }
 
-        public void DeleteAll()
+        public async Task DeleteAllAsync()
         {
             if(_context.Tokens.Count() == 0)
             {
                 return;
             }
 
-            for (int i = 0; i < _context.Tokens.Count(); i++)
-            {
-                _context.Tokens.Remove(_context.Tokens.ToList()[i]);
-            }
+            await _context.Tokens.Where(x => 1 == 1).ExecuteDeleteAsync();
         }
 
-        public IEnumerable<DbToken> GetAll()
+        public async Task<IEnumerable<DbToken>> GetAllAsync()
         {
-            return _context.Tokens;
+            return await _context.Tokens.ToListAsync(); // TODO: DO NOT MATERIALIZE
         }
 
-        public DbToken GetById(string EntityId)
+        public async Task<DbToken> GetByIdAsync(string EntityId)
         {
-            return _context.Tokens.FirstOrDefault(x => x.Id == EntityId);
+            return await _context.Tokens.FirstOrDefaultAsync(x => x.Id == EntityId);
         }
 
-        public int GetCount()
+        public async Task<int> GetCountAsync()
         {
-            return _context.Tokens.Count();
+            return await _context.Tokens.CountAsync();
         }
 
-        public void Insert(DbToken Entity)
+        public async Task InsertAsync(DbToken Entity)
         {
             try
             {
-                _context.Tokens.Add(Entity);
+                await _context.Tokens.AddAsync(Entity);
+                SaveAsync();
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error during insertion token. Error message: {ex.Message}");
                 throw ex;
-            }
-
-            Save();
+            } 
         }
 
-        public void InsertRange(IEnumerable<DbToken> Entities)
+        public async Task InsertRangeAsync(IEnumerable<DbToken> Entities)
         {
             try
             {
-                _context.Tokens.AddRange(Entities);
+                await _context.Tokens.AddRangeAsync(Entities);
+                SaveAsync();
             }
             catch (Exception ex)
             {
                 _logger.LogError($"Error during range insertion token. Error message: {ex.Message}");
                 throw ex;
             }
-
-            Save();
         }
 
-        public void Save()
+        public async Task SaveAsync()
         {
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
     }
 }

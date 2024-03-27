@@ -37,9 +37,9 @@ namespace BullPerks_TestWork.Services.Services
                 return TinyMapper.Map<TokenViewModel>(token);
             });
 
-            if (_dbTokenRepository.GetCount() > 0)
+            if (_dbTokenRepository.GetCountAsync() > 0)
             {
-                _dbTokenRepository.DeleteAll();
+                await _dbTokenRepository.DeleteAllAsync();
             }
             _dbTokenRepository.InsertRange(dbTokens);
 
@@ -48,7 +48,7 @@ namespace BullPerks_TestWork.Services.Services
 
         public async Task<IEnumerable<TokenViewModel>> LoadTokenSupplyAsync(string[] contractAddresses)
         {
-            var dbTokens = _dbTokenRepository.GetAll().ToList();
+            var dbTokens = (await _dbTokenRepository.GetAllAsync()).ToList();
             var tokensForCalculatingAmount = new List<float>();
 
             for (int i = 0; i < contractAddresses.Count(); i++)
@@ -73,7 +73,7 @@ namespace BullPerks_TestWork.Services.Services
                     dbTokens[i].CirculatingSupply = dbTokens[i].TotalSupply - tokensForCalculatingAmount.Sum();
                 }
             }
-            _dbTokenRepository.Save();
+            _dbTokenRepository.SaveAsync();
 
             var viewModels = dbTokens.Select(token =>
             {
