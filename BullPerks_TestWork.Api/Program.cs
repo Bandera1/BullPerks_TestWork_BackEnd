@@ -63,6 +63,7 @@ builder.Services.AddTransient<IRepository<DbToken>, DbTokenRepository>();
 builder.Services.AddTransient<ICryptoWalletService, CryptoWalletService>();
 builder.Services.AddTransient<IJwtTokenService, JwtTokenService>();
 builder.Services.AddTransient<IAuthService, AuthService>();
+builder.Services.AddTransient<IBLPTokenService, BLPTokenService>();
 #endregion
 
 builder.Services.AddControllers();
@@ -106,7 +107,6 @@ builder.Services.AddSwaggerGen(option =>
 // By the way, TinyMapper 8 times faster than AutoMapper. Details: http://tinymapper.net/
 #region TinyMapper
 TypeDescriptor.AddAttributes(typeof(CoinStatsGetWalletBalanceModel), new TypeConverterAttribute(typeof(DbTokenConverter)));
-//TypeDescriptor.AddAttributes(typeof(DbToken), new TypeConverterAttribute(typeof(TokenViewModelConverter)));
 
 TinyMapper.Bind<CoinStatsGetWalletBalanceModel, DbToken>();
 TinyMapper.Bind<DbToken, TokenViewModel>();

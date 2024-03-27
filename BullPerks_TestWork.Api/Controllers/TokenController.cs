@@ -15,15 +15,13 @@ namespace BullPerks_TestWork.Api.Controllers
     [ApiController]
     public class TokenController : ControllerBase
     {
-        private readonly ICryptoWalletService _cryptoWalletService;
-        private readonly IRepository<DbToken> _dbTokenRepository;
+        private readonly IBLPTokenService _BLPTokenService;
         private readonly IConfiguration _configuration;
 
-        public TokenController(ICryptoWalletService cryptoWalletService, IConfiguration configuration, IRepository<DbToken> dbTokenRepository)
+        public TokenController(IConfiguration configuration, IBLPTokenService BLPTokenService)
         {
-            _cryptoWalletService = cryptoWalletService;
-            _configuration = configuration;        
-            _dbTokenRepository = dbTokenRepository;
+            _configuration = configuration;      
+            _BLPTokenService = BLPTokenService;
         }
 
         [AllowAnonymous]
@@ -36,35 +34,21 @@ namespace BullPerks_TestWork.Api.Controllers
             }
 
             var tokenContractAddress = _configuration.GetSection("TokensAddresses").GetSection("BplToken").Value; // Can be replaced by the address coming from the request
-            var tokens = await _cryptoWalletService.GetWalletTokensByContractAddress(tokenContractAddress);
+            var viewModels = await _BLPTokenService.GetBLPTokensAndStoreToDbAsync(tokenContractAddress);     
 
-            var dbTokens = tokens.Select(token =>
+            return Ok(viewModels);
+        }
+
+        [HttpPost("CalculateTokensSupply")]
+        public async Task<IActionResult> CalculateTokensSupply()
+        {
+            if (!ModelState.IsValid)
             {
-                return TinyMapper.Map<DbToken>(token);
-            }).ToList();
-
-            for (int i = 0; i < dbTokens.Count(); i++)
-            {
-                if (dbTokens[i].ContractAddress.Equals(String.Empty))
-                {
-                    dbTokens[i].TotalSupply = 0f;
-                    continue;
-                }
-
-                dbTokens[i].TotalSupply = await _cryptoWalletService.GetTokenTotalSupplyByContractAddress(dbTokens[i].ContractAddress);
-                await Task.Delay(20); // This is required here due to BscScan API limitations of 5 requests per second.
+                return BadRequest();
             }
 
-            var viewModels = dbTokens.Select(token =>
-            {
-                return TinyMapper.Map<TokenViewModel>(token);
-            });
-           
-            if (_dbTokenRepository.GetCount() > 0)
-            {
-                _dbTokenRepository.DeleteAll();
-            }
-            _dbTokenRepository.InsertRange(dbTokens);         
+            var tokensContractAddresses = _configuration.GetSection("TokensAddresses").GetSection("Others").Get<string[]>();
+            var viewModels = await _BLPTokenService.LoadTokenSupplyAsync(tokensContractAddresses);
 
             return Ok(viewModels);
         }
