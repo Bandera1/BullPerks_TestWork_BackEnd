@@ -3,6 +3,7 @@ using BullPerks_TestWork.DAL;
 using BullPerks_TestWork.Domain.Constants;
 using BullPerks_TestWork.Domain.DB.IdentityModels;
 using BullPerks_TestWork.Domain.Interfaces.Services;
+using BullPerks_TestWork.Domain.ViewModels;
 using DiplomeProject.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -28,7 +29,7 @@ namespace BullPerks_TestWork.Services.Services
             _IJwtTokenService = iJwtTokenService;
         }
 
-        public async Task<string> RegisterUser(LoginViewModel model)
+        public async Task<string> RegisterUser(RegisterViewModel model)
         {
             var roleName = ProjectRoles.ADMIN; // We can only register admin
             var userRegister = _context.Users.FirstOrDefault(x => x.Email == model.Email);
@@ -43,7 +44,7 @@ namespace BullPerks_TestWork.Services.Services
                 Id = Guid.NewGuid().ToString(),
                 Login = model.Email,
                 Email = model.Email,
-                UserName = model.Email,
+                UserName = model.Name,
                 RegisterDate = DateTime.Now
             };
             var result = await _userManager.CreateAsync(dbUser, model.Password);

@@ -1,4 +1,5 @@
 ﻿using BullPerks_TestWork.Domain.Interfaces.Services;
+using BullPerks_TestWork.Domain.ViewModels;
 using BullPerks_TestWork.Services.Services;
 using DiplomeProject.ViewModels;
 using Microsoft.AspNetCore.Http;
@@ -27,7 +28,7 @@ namespace BullPerks_TestWork.Api.Controllers
         /// <returns>Return JWT token if register was success</returns>
         [SwaggerResponse(200, Type = typeof(string), Description = "Register new user and return JWT token")]
         [HttpPost("Register")]
-        public async Task<IActionResult> Registration([FromBody] LoginViewModel model)
+        public async Task<IActionResult> Registration([FromBody] RegisterViewModel model)
         {
             if (!ModelState.IsValid)
             {

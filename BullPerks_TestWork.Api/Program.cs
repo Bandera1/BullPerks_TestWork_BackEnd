@@ -70,6 +70,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+#region CORS
+builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
+{
+    builder.WithOrigins("http://localhost:11090").
+    SetIsOriginAllowedToAllowWildcardSubdomains()
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+}));
+#endregion
+
 #region Swagger
 builder.Services.AddSwaggerGen(option =>
 {
@@ -122,6 +132,7 @@ if (app.Environment.IsDevelopment())
 }
 
 //app.UseHttpsRedirection();
+app.UseCors("corsapp");
 
 app.UseAuthentication();
 app.UseAuthorization();
