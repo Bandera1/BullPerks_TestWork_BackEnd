@@ -6,11 +6,6 @@ using BullPerks_TestWork.Domain.Interfaces.Services;
 using BullPerks_TestWork.Domain.ViewModels;
 using DiplomeProject.ViewModels;
 using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BullPerks_TestWork.Services.Services
 {

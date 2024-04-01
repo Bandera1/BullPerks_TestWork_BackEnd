@@ -32,11 +32,13 @@ namespace BullPerks_TestWork.Services.Services
                 return TinyMapper.Map<TokenViewModel>(token);
             });
 
-            if (await _dbTokenRepository.GetCountAsync() > 0)
+            if (await _dbTokenRepository.GetCountAsync() == 0)
             {
-                await _dbTokenRepository.DeleteAllAsync();
+                await _dbTokenRepository.InsertRangeAsync(dbTokens);
+
+                //await _dbTokenRepository.DeleteAllAsync();
             }
-            await _dbTokenRepository.InsertRangeAsync(dbTokens);
+
 
             return viewModels;
         }
@@ -65,7 +67,7 @@ namespace BullPerks_TestWork.Services.Services
 
                 if (dbTokens[i].TotalSupply > 0f)
                 {
-                    dbTokens[i].CirculatingSupply = dbTokens[i].TotalSupply - tokensForCalculatingAmount.Sum();
+                    dbTokens[i].CirculatingSupply = (dbTokens[i].TotalSupply - tokensForCalculatingAmount.Sum()) / 1e18f;
                 }
             }
             await _dbTokenRepository.SaveAsync();

@@ -18,7 +18,6 @@ namespace BullPerks_TestWork.Services.Converters
 
             var result = new DbToken
             {
-                Id = Guid.NewGuid().ToString(),
                 Name = concreteValue.CoinId.Length > 42 ? concreteValue.CoinId.Substring(0, concreteValue.CoinId.Length - 42) : concreteValue.CoinId,
                 ContractAddress = concreteValue.CoinId.Length > 42 ? concreteValue.CoinId.Substring(concreteValue.CoinId.Length - 42) : "",
             };

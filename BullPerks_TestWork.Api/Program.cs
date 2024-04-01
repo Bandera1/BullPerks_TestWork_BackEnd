@@ -73,7 +73,7 @@ builder.Services.AddSwaggerGen();
 #region CORS
 builder.Services.AddCors(p => p.AddPolicy("corsapp", builder =>
 {
-    builder.WithOrigins("http://localhost:11090").
+    builder.AllowAnyOrigin().
     SetIsOriginAllowedToAllowWildcardSubdomains()
                 .AllowAnyHeader()
                 .AllowAnyMethod();
