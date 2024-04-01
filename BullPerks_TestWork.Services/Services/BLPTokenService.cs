@@ -35,10 +35,7 @@ namespace BullPerks_TestWork.Services.Services
             if (await _dbTokenRepository.GetCountAsync() == 0)
             {
                 await _dbTokenRepository.InsertRangeAsync(dbTokens);
-
-                //await _dbTokenRepository.DeleteAllAsync();
             }
-
 
             return viewModels;
         }
